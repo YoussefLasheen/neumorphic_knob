@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:knob_widget/src/controller/knob_controller.dart';
 import 'package:knob_widget/src/utils/knob_style.dart';
 import 'package:provider/provider.dart';
@@ -33,11 +34,17 @@ class _ControlKnobContainerState extends State<ControlKnobContainer> {
       // ),
       child: Stack(
         children: <Widget>[
-          Container(
+          SizedBox(
             width: widget.width,
             height: widget.height,
-            color: Colors.transparent,
-            child: const KnobGestureDetector(),
+            child: Neumorphic(
+              style: NeumorphicStyle(
+                shape: NeumorphicShape.concave,
+                boxShape: NeumorphicBoxShape.circle(),
+                depth: 10,
+              ),
+              child: const KnobGestureDetector(),
+            ),
           ),
           IgnorePointer(
             child: Container(
